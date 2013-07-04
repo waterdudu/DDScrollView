@@ -18,6 +18,12 @@ NOTE:There is also a UIlabel category to create autoresized UILabel, you can tes
 
 2 init DDScrollView and add subviews
 ```
+@implementation ViewController
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
     CGRect frame = [UIScreen mainScreen].applicationFrame;
     
     self.scrollView = [[DDScrollView alloc] initWithFrame:frame];
@@ -33,7 +39,7 @@ NOTE:There is also a UIlabel category to create autoresized UILabel, you can tes
     [self.scrollView addSubview:l2];
 
     [self.view addSubview:self.scrollView];
-    
+}
 ```
 
 3 enjoy!
