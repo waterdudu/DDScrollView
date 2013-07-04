@@ -3,11 +3,11 @@ DDScrollView
 
 an autoresize scrollview
 
-DDScrollView
+Usage
 ============
 
-Usage:Just add DDScrollView.h and DDScrollView.m in your project.
-There is also a UIlabel category to create autoresized UILabel, you can test DDScrollView with this category.
+Just add DDScrollView.h and DDScrollView.m in your project.
+NOTE:There is also a UIlabel category to create autoresized UILabel, you can test DDScrollView with this category.
 
 
 1 new property of DDScrollView in your viewcontroller.h
