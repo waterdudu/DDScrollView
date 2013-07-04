@@ -12,8 +12,9 @@ NOTE:There is also a UIlabel category to create autoresized UILabel, you can tes
 
 1 new property of DDScrollView in your viewcontroller.h
 ```
+@interface ViewController : UIViewController
 @property (nonatomic, strong) DDScrollView *scrollView;
-
+@end
 ```
 
 2 init DDScrollView and add subviews
