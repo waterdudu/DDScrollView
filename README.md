@@ -48,6 +48,8 @@ NOTE:There is also a UIlabel category to create autoresized UILabel, you can tes
 
 Screenshots
 ===================
-![alt tag](https://raw.github.com/waterdudu/DDScrollView/raw/master/screenshots/DDScrolView1.png)![alt tag](https://raw.github.com/waterdudu/DDScrollView/raw/master/screenshots/DDScrolView2.png)![alt tag](https://raw.github.com/waterdudu/DDScrollView/raw/master/screenshots/DDScrolView3.png)
+![alt tag](https://raw.github.com/waterdudu/DDScrollView/raw/master/screenshots/DDScrolView1.png)
+![alt tag](https://raw.github.com/waterdudu/DDScrollView/raw/master/screenshots/DDScrolView2.png)
+![alt tag](https://raw.github.com/waterdudu/DDScrollView/raw/master/screenshots/DDScrolView3.png)
 
 
