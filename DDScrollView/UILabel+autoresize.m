@@ -33,8 +33,8 @@
     label.tag = tag;
     label.numberOfLines = 0;
     label.textColor = [UIColor blackColor];
+    label.backgroundColor = [UIColor clearColor];   
     label.textAlignment = NSTextAlignmentLeft;
-    [label setBackgroundColor:BG_COLOR];
     
     
     CGSize size = [content sizeWithFont:label.font constrainedToSize:CGSizeMake(frame.size.width, MAXFLOAT) lineBreakMode:

@@ -9,9 +9,10 @@
 #import "ViewController.h"
 
 #import "UILabel+autoresize.h"
+#import "data.h"
+#define TEXT_COLOR [UIColor colorWithRed:133/256.0 green:192/256.0 blue:201/256.0 alpha:1];
+#define BG_COLOR [UIColor colorWithRed:240/256.0 green:240/256.0 blue:242/256.0 alpha:1]
 
-NSString *t = @"这是导演罗莎莎从申奥短片开始与张艺谋合作八年后，她为《金陵十三钗》拍下的全程纪录，揭秘这部巨资大片背后的故事。 《张艺谋和他的金陵十三钗》总共五集，分别是《十三钗的诞生》、《遇见贝尔》、《新演员乐与路》、《艰难的战争》、《一个镜头的执着》，详细纪录了《十三 钗》不为人知的幕后故事，包括巨星克里斯蒂安贝尔在生活中显露的活泼搞笑的一面；好莱坞威廉姆斯特效团队如何在制作战争戏的过程中精确到一颗子弹，以及人 身体上最细微的炸点；“十三钗”及教会学生是如何在万人海选中脱颖而出；还有被选中的“十三钗”经历的“魔鬼训练”，从完全业余的状态到在镜头前风情万 种……©豆瓣\n"
-"这是导演罗莎莎从申奥短片开始与张艺谋合作八年后，她为《金陵十三钗》拍下的全程纪录，揭秘这部巨资大片背后的故事。 《张艺谋和他的金陵十三钗》总共五集，分别是《十三钗的诞生》、《遇见贝尔》、《新演员乐与路》、《艰难的战争》、《一个镜头的执着》，详细纪录了《十三 钗》不为人知的幕后故事，包括巨星克里斯蒂安贝尔在生活中显露的活泼搞笑的一面；好莱坞威廉姆斯特效团队如何在制作战争戏的过程中精确到一颗子弹，以及人 身体上最细微的炸点；“十三钗”及教会学生是如何在万人海选中脱颖而出；还有被选中的“十三钗”经历的“魔鬼训练”，从完全业余的状态到在镜头前风情万 种……©豆瓣\n";
 
 @interface ViewController ()
 
@@ -19,39 +20,78 @@ NSString *t = @"这是导演罗莎莎从申奥短片开始与张艺谋合作八�
 
 @implementation ViewController
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    CGRect frame = [UIScreen mainScreen].applicationFrame;
-    
+    CGRect frame = [UIScreen mainScreen].bounds;
+    CGRect framet = CGRectZero;
     self.scrollView = [[DDScrollView alloc] initWithFrame:frame];
-    
-    CGRect label_frame = (CGRect){10, 10, 200, 0};
-    UILabel *l = [UILabel makeAutoResizeLabel:t frame:label_frame tag:88];
-    
-    // the second label
-    label_frame = (CGRect){10, 900, 300, 0};
-    UILabel *l2 = [UILabel makeAutoResizeLabel:t frame:label_frame tag:88];
- 
-//    label_frame = (CGRect){800, 1600, 300, 0};
-//    UILabel *l3 = [UILabel makeAutoResizeLabel:t frame:label_frame tag:88];
+    self.scrollView.backgroundColor = BG_COLOR;
+    self.scrollView.delegate = self;
     
     
-    [self.scrollView addSubview:l];
-    [self.scrollView addSubview:l2];
-//    [self.scrollView addSubview:l3];
+    //-------------------------------------------------------------------
+    //             the first label from file
+    //-------------------------------------------------------------------
+    CGRect label_frame = (CGRect){10, 10, frame.size.width - 10*2, 0};
+    NSString* path = [[NSBundle mainBundle] pathForResource:@"Romeo&Juliet"
+                                                     ofType:@"txt"];
+    NSString* content = [NSString stringWithContentsOfFile:path
+                                                  encoding:NSUTF8StringEncoding
+                                                     error:NULL];
     
+    UILabel *label = [UILabel makeAutoResizeLabel:content frame:label_frame tag:88];
+    [self.scrollView addSubview:label];
     
+    //-------------------------------------------------------------------
+    //             the second label from string
+    //-------------------------------------------------------------------
+    framet = label.frame;
+    label_frame = (CGRect){10, 10 + framet.origin.y+framet.size.height, frame.size.width - 10*2, 0};
+    label = [UILabel makeAutoResizeLabel:t frame:label_frame tag:88];
+    
+    [self.scrollView addSubview:label];
     
     [self.view addSubview:self.scrollView];
     
 }
 
-- (void)didReceiveMemoryWarning
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    CGPoint contentOffset = self.scrollView.contentOffset;
+    CGSize contentSize    = self.scrollView.contentSize;
+    CGRect frame          = self.scrollView.frame;
+    UIEdgeInsets inset    = self.scrollView.contentInset;
+    
+    NSLog(@"> %f %f %f %f %f", contentOffset.x, contentOffset.y, contentSize.width, contentSize.height,inset.bottom);
+    if (contentOffset.y + frame.size.height -  inset.bottom > contentSize.height) {
+        [self addImageView:(CGRect){0,contentSize.height,frame.size.width,0}];
+    }
+    
+    
 }
+- (void)addImageView:(CGRect)frame
+{
+    static bool b = false;
+    if (!b) {
+        b = true;
+        
+        CGRect f = frame;
+        NSLog(@">>>    %f %f %f %f", f.origin.x, f.origin.y,f.size.width,f.size.height);
+        UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectZero];
+        UIImage *img = [UIImage imageNamed:@"1.jpg"];
+        
+        f.size = img.size;
+        f.origin = (CGPoint){0, frame.origin.y+frame.size.height};
+        imgView.image = img;
+        
+        [imgView setFrame:f];
+        
+        [self.scrollView addSubview:imgView];
+    }
+}
+
 
 @end

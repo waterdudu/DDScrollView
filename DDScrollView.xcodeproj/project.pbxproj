@@ -21,6 +21,8 @@
 		870105261784259C00C5EFD1 /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 870105241784259C00C5EFD1 /* ViewController_iPad.xib */; };
 		87010531178425F600C5EFD1 /* DDScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 87010530178425F600C5EFD1 /* DDScrollView.m */; };
 		8701053617842E5000C5EFD1 /* UILabel+autoresize.m in Sources */ = {isa = PBXBuildFile; fileRef = 8701053517842E5000C5EFD1 /* UILabel+autoresize.m */; };
+		87316F5A1785705E00861CA1 /* Romeo&Juliet.txt in Resources */ = {isa = PBXBuildFile; fileRef = 87316F591785705E00861CA1 /* Romeo&Juliet.txt */; };
+		87316F5D17857C6200861CA1 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87316F5C17857C6200861CA1 /* 1.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,9 @@
 		87010530178425F600C5EFD1 /* DDScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDScrollView.m; path = DDScrollView/DDScrollView.m; sourceTree = "<group>"; };
 		8701053417842E5000C5EFD1 /* UILabel+autoresize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+autoresize.h"; sourceTree = "<group>"; };
 		8701053517842E5000C5EFD1 /* UILabel+autoresize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+autoresize.m"; sourceTree = "<group>"; };
+		87316F591785705E00861CA1 /* Romeo&Juliet.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Romeo&Juliet.txt"; sourceTree = "<group>"; };
+		87316F5B178573F400861CA1 /* data.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = data.h; sourceTree = "<group>"; };
+		87316F5C17857C6200861CA1 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,8 +134,11 @@
 		8701052D178425C800C5EFD1 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				87316F591785705E00861CA1 /* Romeo&Juliet.txt */,
+				87316F561785678700861CA1 /* images */,
 				870105211784259C00C5EFD1 /* ViewController_iPhone.xib */,
 				870105241784259C00C5EFD1 /* ViewController_iPad.xib */,
+				87316F5B178573F400861CA1 /* data.h */,
 			);
 			name = resources;
 			sourceTree = "<group>";
@@ -142,6 +150,14 @@
 				87010530178425F600C5EFD1 /* DDScrollView.m */,
 			);
 			name = DDScrollView;
+			sourceTree = "<group>";
+		};
+		87316F561785678700861CA1 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				87316F5C17857C6200861CA1 /* 1.jpg */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +217,8 @@
 				8701051D1784259C00C5EFD1 /* Default-568h@2x.png in Resources */,
 				870105231784259C00C5EFD1 /* ViewController_iPhone.xib in Resources */,
 				870105261784259C00C5EFD1 /* ViewController_iPad.xib in Resources */,
+				87316F5A1785705E00861CA1 /* Romeo&Juliet.txt in Resources */,
+				87316F5D17857C6200861CA1 /* 1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +366,7 @@
 				8701052B1784259C00C5EFD1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

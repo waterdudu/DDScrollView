@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "DDScrollView.h"
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<UIScrollViewDelegate>
 
 //@property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) DDScrollView *scrollView;
