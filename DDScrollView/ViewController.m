@@ -80,16 +80,25 @@
         
         CGRect f = frame;
         NSLog(@">>>    %f %f %f %f", f.origin.x, f.origin.y,f.size.width,f.size.height);
-        UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectZero];
+
         UIImage *img = [UIImage imageNamed:@"1.jpg"];
+        UIImageView *imgView = [[UIImageView alloc] initWithImage:img];
         
-        f.size = img.size;
-        f.origin = (CGPoint){0, frame.origin.y+frame.size.height};
-        imgView.image = img;
+        f.size = (CGSize){f.size.width - 10, img.size.height};
+        f.origin.x += 5;
         
-        [imgView setFrame:f];
         
-        [self.scrollView addSubview:imgView];
+        // make a scroll view
+        UIScrollView *sv = [[UIScrollView alloc] initWithFrame:CGRectZero];
+        sv.contentSize = img.size;
+
+        [sv setFrame:f];
+        [sv addSubview:imgView];
+        
+        
+        [self.scrollView addSubview:sv];
+
+//        [self.scrollView addSubview:imgView];
     }
 }
 
